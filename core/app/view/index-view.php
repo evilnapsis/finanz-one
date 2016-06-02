@@ -1,4 +1,6 @@
+<?php
 
+?>
 <section class="container">
 <div class="row">
 	<div class="col-md-12">
@@ -32,12 +34,28 @@
 	<div class="col-md-12">
 		<?php if(isset($_GET["sd"]) && isset($_GET["ed"]) ):?>
 
-<?php if($_GET["sd"]!=""&&$_GET["ed"]!=""):
+<?php 
+
+$sd = "";
+$ed = "";
+
+
+if($_GET["sd"]!=""&&$_GET["ed"]!=""):
 $sd = strtotime($_GET["sd"]);
 $ed = strtotime($_GET["ed"]);
+endif;
+else:
+	$dateB = new DateTime(date('Y-m-d')); 
+	$dateA = $dateB->sub(DateInterval::createFromDateString('28 days'));
+	$sd= strtotime(date_format($dateA,"Y-m-d"));
+	$ed = strtotime(date("Y-m-d"));
+	//$ed = strtotime(date("Y-m-d"));
+endif;
 
+if($sd!=""&&$ed!=""):
 ?>
-<div class="box box-primary">
+<div class="panel panel-default">
+<div class="panel-heading">Grafica</div>
 <div id="graph" class="animate" data-animate="fadeInUp" ></div>
 </div>
 <script>
@@ -124,7 +142,7 @@ $selltotal+= ($operations[0]->t);
 </div>
 <?php endif;?>
 
-		<?php endif; ?>
+
 	</div>
 </div>
 
