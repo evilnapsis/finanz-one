@@ -7,6 +7,10 @@
 
     <link rel="stylesheet" href="res/font-awesome/css/font-awesome.min.css">
     <script src="res/js/jquery.min.js"></script>
+<script src="res/plugins/morris/raphael-min.js"></script>
+<script src="res/plugins/morris/morris.js"></script>
+  <link rel="stylesheet" href="res/plugins/morris/morris.css">
+  <link rel="stylesheet" href="res/plugins/morris/example.css">
 
   </head>
 

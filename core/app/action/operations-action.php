@@ -45,7 +45,7 @@ if(isset($_GET["opt"]) && $_GET["opt"]!=""){
 		$op->update();
 		Core::redir("./?view=outs&opt=all");
 	}
-	else if($opt=="delin"){
+	else if($opt=="delout"){
 		$op = OperationData::getById($_GET["id"]);
 		$op->del();
 		Core::redir("./?view=outs&opt=all");

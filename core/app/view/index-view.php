@@ -54,7 +54,7 @@ for($i=$sd;$i<=$ed;$i+=(60*60*24)){
   $sr = $res[0]->t!=null?$res[0]->t:0;
   $sl = $operations[0]->t!=null?$operations[0]->t:0;
   echo "dates[c]=\"".date("Y-m-d",$i)."\";";
-  echo "data[c]=".($sr-($selltotal)).";";
+  echo "data[c]=".($sl-($sr)).";";
   echo "total[c]={x: dates[c],y: data[c]};";
   echo "c++;";
 }
