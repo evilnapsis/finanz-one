@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>.: Lb-min - Evilnapsis :.</title>
+    <title>.: Finanz-One - Evilnapsis :.</title>
     <link href="res/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <link rel="stylesheet" href="res/font-awesome/css/font-awesome.min.css">
@@ -20,19 +20,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="./">LB-MIN</a>
+      <a class="navbar-brand" href="./">FINANZ ONE</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="./">INICIO</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Crud <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Ver</a></li>
-            <li><a href="#">Agrear</a></li>
-          </ul>
-        </li>
+        <li><a href="./?view=ins&opt=all">ENTRADAS</a></li>
+        <li><a href="./?view=outs&opt=all">SALIDAS</a></li>
+        <li><a href="./?vview=help">AYUDA</a></li>
       </ul>
     </div>
   </div>

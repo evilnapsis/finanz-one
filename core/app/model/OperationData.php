@@ -1,19 +1,16 @@
 <?php
-class UserData {
-	public static $tablename = "user";
+class OperationData {
+	public static $tablename = "operation";
 
-	public function Userdata(){
-		$this->name = "";
-		$this->lastname = "";
-		$this->username = "";
-		$this->email = "";
-		$this->password = "";
+	public function OperationData(){
+
+
 		$this->created_at = "NOW()";
 	}
 
 	public function add(){
-		$sql = "insert into user (name,lastname,username,email,password,created_at) ";
-		$sql .= "value (\"$this->name\",\"$this->lastname\",\"$this->username\",\"$this->email\",\"$this->password\",$this->created_at)";
+		$sql = "insert into ".self::$tablename." (concept,description,date_at,amount,kind,created_at) ";
+		$sql .= "value (\"$this->concept\",\"$this->description\",\"$this->date_at\",\"$this->amount\",\"$this->kind\",$this->created_at)";
 		Executor::doit($sql);
 	}
 
@@ -28,7 +25,7 @@ class UserData {
 	}
 
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\",lastname=\"$this->lastname\",username=\"$this->username\",lastname=\"$this->lastname\",status=\"$this->status\",kind=\"$this->kind\" where id=$this->id";
+		$sql = "update ".self::$tablename." set concept=\"$this->concept\",description=\"$this->description\",date_at=\"$this->date_at\",amount=\"$this->amount\" where id=$this->id";
 		Executor::doit($sql);
 	}
 
@@ -40,32 +37,39 @@ class UserData {
 	public static function getById($id){
 		 $sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new UserData());
+		return Model::one($query[0],new OperationData());
 	}
 
 	public static function getBy($k,$v){
 		$sql = "select * from ".self::$tablename." where $k=\"$v\"";
 		$query = Executor::doit($sql);
-		return Model::one($query[0],new UserData());
+		return Model::one($query[0],new OperationData());
 	}
 
 	public static function getAll(){
 		 $sql = "select * from ".self::$tablename;
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new UserData());
+		return Model::many($query[0],new OperationData());
 	}
+
+	public static function getAllByKind($k){
+		 $sql = "select * from ".self::$tablename." where kind=$k order by date_at desc";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new OperationData());
+	}
+
 
 	public static function getAllBy($k,$v){
 		 $sql = "select * from ".self::$tablename." where $k=\"$v\"";
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new UserData());
+		return Model::many($query[0],new OperationData());
 	}
 
 
 	public static function getLike($q){
 		$sql = "select * from ".self::$tablename." where name like '%$q%'";
 		$query = Executor::doit($sql);
-		return Model::many($query[0],new UserData());
+		return Model::many($query[0],new OperationData());
 	}
 
 
