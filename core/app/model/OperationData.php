@@ -58,6 +58,17 @@ class OperationData {
 		return Model::many($query[0],new OperationData());
 	}
 
+	public static function getAllByKindDate($d,$k){
+		 $sql = "select * from ".self::$tablename." where kind=$k and date_at=\"$d\" order by date_at desc";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new OperationData());
+	}
+
+	public static function getSumByKindDate($d,$k){
+		$sql = "select sum(amount) as t from ".self::$tablename." where kind=$k and date_at=\"$d\" order by date_at desc";
+		$query = Executor::doit($sql);
+		return Model::many($query[0],new OperationData());
+	}
 
 	public static function getAllBy($k,$v){
 		 $sql = "select * from ".self::$tablename." where $k=\"$v\"";
